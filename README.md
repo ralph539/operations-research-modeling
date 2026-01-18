@@ -1,56 +1,59 @@
 
-# Recherche Opérationnelle – Travaux Pratiques (N7, 2A, S1)
 
-Bienvenue dans le dépôt des Travaux Pratiques de Recherche Opérationnelle.
-Ce projet regroupe des TPs sur la **programmation linéaire**, la **modélisation de problèmes d'optimisation** et l'utilisation du solveur **GLPK (GNU Linear Programming Kit)**.
+# 📐 Operations Research – Practical Assignments (N7, 2A, S1)
 
-Vous trouverez ici des modèles, des instances, des notebooks et les sources du solveur pour expérimenter et analyser différents problèmes d'optimisation.
+This repository contains practical assignments for Operations Research, focusing on **linear programming**, **optimization modeling**, and the use of the **GLPK (GNU Linear Programming Kit)** solver.
 
+You will find models, data instances, Jupyter notebooks, and solver sources to experiment with and analyze various optimization problems.
 
-## 📁 Structure du projet
+---
+
+## 📁 Repository Structure
 
 ```
 TP/
 ├── TP1/
 │   └── solveurGLPK/
 │       └── sources/
-│           ├── glpk-5.0.tar.gz        # Archive source GLPK
-│           └── glpk-5.0/              # Code source GLPK extrait
-│               ├── doc/               # Documentation GLPK
-│               ├── examples/          # Exemples de problèmes
-│               ├── src/               # Code source du solveur
+│           ├── glpk-5.0.tar.gz        # GLPK source archive
+│           └── glpk-5.0/              # Extracted GLPK source code
+│               ├── doc/               # GLPK documentation
+│               ├── examples/          # Example optimization problems
+│               ├── src/               # Solver source code
 │               └── ...
 ├── TP2-TP3/
-│   ├── KnapSack_Optimization/         # TP2 : Modélisation & résolution du sac à dos
-│   │   ├── NotebookTP2.ipynb          # Notebook Jupyter TP2
-│   │   └── InstancesKnapSack/         # Instances du problème
-│   └── SAT_Modeling_Advanced/         # TP3 : Modélisation avancée SAT/PLNE
-│       ├── TP3_skeleton.ipynb         # Notebook Jupyter TP3
-│       └── InstancesKnapSack/         # Instances pour SAT/PLNE
+│   ├── KnapSack_Optimization/         # TP2: Knapsack modeling & solving
+│   │   ├── NotebookTP2.ipynb          # Jupyter notebook for TP2
+│   │   └── InstancesKnapSack/         # Knapsack problem instances
+│   └── SAT_Modeling_Advanced/         # TP3: Advanced SAT/ILP modeling
+│       ├── TP3_skeleton.ipynb         # Jupyter notebook for TP3
+│       └── InstancesKnapSack/         # Instances for SAT/ILP
 └── TPRO/
-    └── ...                            # Autres modèles et données
+    └── ...                            # Other models and data
 ```
 
+---
 
+## 🎯 Project Objectives
 
-## 🎯 Objectifs pédagogiques
+- Understand the basics of **linear programming**
+- Learn to use and compile an industrial solver (**GLPK**)
+- Model and solve optimization problems (LP, ILP, SAT)
+- Experiment with real and synthetic instances (Knapsack, SAT, etc.)
+- Bridge theory (formulation) and practice (solving, analysis)
 
-- Comprendre les bases de la **programmation linéaire**
-- Savoir utiliser et compiler un solveur industriel (**GLPK**)
-- Modéliser et résoudre des problèmes d’optimisation (PL, PLNE, SAT)
-- Expérimenter sur des instances réelles et synthétiques (KnapSack, SAT, etc.)
-- Faire le lien entre théorie (formulation) et pratique (résolution, analyse)
+---
 
-
-## 🛠️ Prérequis
-- Environnement Linux/Unix (recommandé)
+## 🛠️ Requirements
+- Linux/Unix environment (recommended)
 - GCC / Make
-- Dépendances GLPK (outils de compilation standards)
+- GLPK dependencies (standard build tools)
 
+---
 
-## 🚀 Compilation & utilisation
+## 🚀 Build & Usage
 
-Pour compiler GLPK :
+To build GLPK:
 
 ```bash
 cd TP/TP1/solveurGLPK/sources/glpk-5.0
@@ -59,15 +62,19 @@ make
 sudo make install
 ```
 
-Pour les TPs Jupyter :
-- TP2 (sac à dos) : `TP2-TP3/KnapSack_Optimization/NotebookTP2.ipynb`
-- TP3 (SAT/PLNE) : `TP2-TP3/SAT_Modeling_Advanced/TP3_skeleton.ipynb`
+For the Jupyter notebooks:
+- TP2 (Knapsack): `TP2-TP3/KnapSack_Optimization/NotebookTP2.ipynb`
+- TP3 (SAT/ILP): `TP2-TP3/SAT_Modeling_Advanced/TP3_skeleton.ipynb`
 
-Ouvrez les notebooks dans VS Code ou JupyterLab pour explorer les modèles et les analyses.
+Open the notebooks in VS Code or JupyterLab to explore the models and analyses.
 
-## 👥 Auteurs
+---
+
+## 👥 Authors
 - Ralph Khairallah ([ralphkhairallah200@gmail.com](mailto:ralphkhairallah200@gmail.com))
 - Baptiste Rembert
 
-## 📄 Licence
-Ce dépôt contient des sources open source (GLPK) et des travaux académiques. Voir les fichiers COPYING/README pour plus de détails.
+---
+
+## 📄 License
+This repository contains open source (GLPK) and academic work. See COPYING/README files for details.
