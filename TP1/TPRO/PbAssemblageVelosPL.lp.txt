@@ -1,0 +1,11 @@
+\* Problem: Assemblage de velos*\
+
+Maximize
+    Benefice: 650 VC + 250 VS
+    
+Subject To
+Surface : 3.5 VC + 1.5 VS <= 2000
+Quantite : VC <= 750
+Temps : 0.13 VC + 0.11 VS <= 40
+
+End

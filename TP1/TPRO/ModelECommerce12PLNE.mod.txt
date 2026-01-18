@@ -1,0 +1,47 @@
+#  GLPK model file created by SUN for RO teaching
+
+
+###############################  Model ###############################
+
+
+###############################  Sets  ###############################
+
+set MAGASINS; 
+
+set DEMANDES;
+
+set FLUIDES;
+
+################### Variables ###################
+
+var Choix{i in MAGASINS, j in FLUIDES, k in DEMANDES}, integer, >=0;
+
+var Q{i in MAGASINS, k in DEMANDES}, binary;
+
+###################  Constants: Data to load   #########################
+
+param demande{i in DEMANDES, j in FLUIDES};
+
+param stock{i in MAGASINS, j in FLUIDES};
+
+param coutfixe{i in DEMANDES, j in MAGASINS};
+
+param coutvariable{i in DEMANDES, j in MAGASINS};
+
+################### Constraints ###################
+
+
+s.t. RespectDisponibilite{i in MAGASINS, j in FLUIDES}:
+  sum{k in DEMANDES} Choix[i,j,k] <= stock[i,j];
+  
+s.t. RespectCommandeComplete{j in FLUIDES, k in DEMANDES}:
+  sum{i in MAGASINS} Choix[i,j,k] = demande[k,j];
+
+
+###### Objective ######
+
+minimize CoutTotal: 
+		sum{i in MAGASINS, k in DEMANDES} (coutfixe[k,i]*Q[i,k] + sum{j in FLUIDES} coutvariable[k,i]*Choix[i,j,k]); 
+
+
+end;

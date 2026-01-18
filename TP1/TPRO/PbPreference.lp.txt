@@ -1,0 +1,43 @@
+\* Problem: ModelPreference *\
+
+Maximize
+ PreferenceTotal: + 4 Q(P1,T1) + 7 Q(P2,T1) + 5 Q(P3,T1) + 8 Q(P1,T2)
+ + Q(P2,T2) + 5 Q(P3,T2) + 6 Q(P1,T3) + 3 Q(P2,T3) + 7 Q(P3,T3)
+
+Subject To
+ RespectPreferenceDeChaquePersonne(T1): + Q(P1,T1) + Q(P2,T1) + Q(P3,T1)
+ = 1
+ RespectPreferenceDeChaquePersonne(T2): + Q(P1,T2) + Q(P2,T2) + Q(P3,T2)
+ = 1
+ RespectPreferenceDeChaquePersonne(T3): + Q(P1,T3) + Q(P2,T3) + Q(P3,T3)
+ = 1
+ RespectPreferenceDeChaqueTache(P1): + Q(P1,T1) + Q(P1,T2) + Q(P1,T3)
+ = 1
+ RespectPreferenceDeChaqueTache(P2): + Q(P2,T1) + Q(P2,T2) + Q(P2,T3)
+ = 1
+ RespectPreferenceDeChaqueTache(P3): + Q(P3,T1) + Q(P3,T2) + Q(P3,T3)
+ = 1
+
+Bounds
+ 0 <= Q(P1,T1) <= 1
+ 0 <= Q(P2,T1) <= 1
+ 0 <= Q(P3,T1) <= 1
+ 0 <= Q(P1,T2) <= 1
+ 0 <= Q(P2,T2) <= 1
+ 0 <= Q(P3,T2) <= 1
+ 0 <= Q(P1,T3) <= 1
+ 0 <= Q(P2,T3) <= 1
+ 0 <= Q(P3,T3) <= 1
+
+Generals
+ Q(P1,T1)
+ Q(P2,T1)
+ Q(P3,T1)
+ Q(P1,T2)
+ Q(P2,T2)
+ Q(P3,T2)
+ Q(P1,T3)
+ Q(P2,T3)
+ Q(P3,T3)
+
+End

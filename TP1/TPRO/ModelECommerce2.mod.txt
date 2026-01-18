@@ -1,0 +1,38 @@
+#  GLPK model file created by SUN for RO teaching
+
+
+###############################  Model ###############################
+
+
+###############################  Sets  ###############################
+
+set POINTS;
+
+################### Variables ###################
+
+var Trajet{i in POINTS, j in POINTS : i != j}, binary;
+
+###################  Constants: Data to load   #########################
+
+param distance{i in POINTS, j in POINTS};
+
+################### Constraints ###################
+
+
+s.t. RespectEntreeUnique{i in POINTS}:
+  sum{j in POINTS} Trajet[i,j] = 1;
+  
+s.t. RespectSortieUnique{j in POINTS}:
+  sum{i in POINTS} Trajet[i,j] = 1;
+  
+s.t. RespectTousPointsVisite{j in POINTS}:
+  sum{i in POINTS} Trajet[i,j] = 1;
+
+
+###### Objective ######
+
+minimize CoutTotal: 
+		sum{i in MAGASINS, k in DEMANDES} (coutfixe[k,i]*Q[i,k] + sum{j in FLUIDES} coutvariable[k,i]*Choix[i,j,k]); 
+
+
+end;
