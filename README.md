@@ -1,35 +1,56 @@
-# Recherche Opérationnelle - Travaux Pratiques
+📐 Optimization & Linear Programming – GLPK Solver TP
+This repository contains a university practical assignment (TP) focused on **linear programming and optimization**, using the **GLPK (GNU Linear Programming Kit)** solver.
 
-Bienvenue dans le dépôt des Travaux Pratiques de Recherche Opérationnelle (N7, 2A, S1).
+The project explores modeling, solving, and experimenting with linear optimization problems using GLPK, including source compilation and solver execution.
 
-## Structure du projet
+🔍 Project Structure
+TP/
+├── TP1/
+│   └── solveurGLPK/
+│       └── sources/
+│           ├── glpk-5.0.tar.gz        → Original GLPK source archive
+│           └── glpk-5.0/              → Extracted GLPK source code
+│               ├── doc/               → GLPK documentation (PDF, LaTeX)
+│               ├── examples/          → Example optimization problems
+│               ├── src/               → Core GLPK solver source code
+│               ├── configure / Makefile tools
+│               └── build scripts
+├── TP2-TP3/
+│   ├── KnapSack_Optimization/         → (ex-Sujet_2_REMBERT_Baptiste_KHAIRALLAH_Ralph) TP2: KnapSack problem modeling & solving
+│   │   ├── NotebookTP2.ipynb          → Jupyter notebook for TP2
+│   │   └── InstancesKnapSack/         → KnapSack problem instances
+│   └── SAT_Modeling_Advanced/         → (ex-Sujet_3_REMBERT_Baptiste_KHAIRALLAH_Ralph) TP3: Advanced SAT/PLNE modeling
+│       ├── TP3_skeleton.ipynb         → Jupyter notebook for TP3
+│       └── InstancesKnapSack/         → KnapSack problem instances for SAT/PLNE
+└── TPRO/
+    └── ...                            → Other optimization models and data
 
-- **TP1/** : Modélisation et résolution de problèmes linéaires avec GLPK
-  - `ExemplesIllustratifsGLPK/` : Exemples de modèles et données pour GLPK
-  - `solveurGLPK/` : Sources et exécutables du solveur GLPK
-- **TP2-TP3/** : Problèmes du sac à dos (KnapSack) et notebooks associés
-  - `Sujet_2_REMBERT_Baptiste_KHAIRALLAH_Ralph/` : Instances et notebook TP2
-  - `Sujet_3_REMBERT_Baptiste_KHAIRALLAH_Ralph/` : Instances et notebook TP3
-- **TPRO/** : Modèles et données pour d'autres problèmes d'optimisation
 
-## Contenu principal
+🧠 Project Objectives
+The goals of this repository are to:
 
-- Modèles de programmation linéaire (PL) et PLNE
-- Données d'exemples pour l'expérimentation
-- Scripts et notebooks pour la résolution et l'analyse
-- Sources du solveur GLPK (open source)
+- Understand the fundamentals of **linear programming**
+- Learn how to **use and compile an industrial-grade solver (GLPK)**
+- Model and solve optimization problems (LP, PLNE, SAT)
+- Experiment with real and synthetic instances (KnapSack, SAT, etc.)
+- Bridge theory (formulation) with practical solver execution and analysis
 
-## Utilisation
+🛠️ Requirements
+- Linux / Unix environment (recommended)
+- GCC / Make
+- GLPK dependencies (standard build tools)
 
-1. Cloner le dépôt :
-   ```bash
-   git clone https://github.com/ralph539/Recherche-Operationnelle-TP.git
-   ```
-2. Suivre les instructions dans chaque dossier pour compiler ou exécuter les modèles.
+🧪 Build & Usage
+From the GLPK source directory:
 
-## Auteurs
-- Ralph Khairallah ([ralphkhairallah200@gmail.com](mailto:ralphkhairallah200@gmail.com))
-- Baptiste Rembert
+```bash
+cd TP/TP1/solveurGLPK/sources/glpk-5.0
+./configure
+make
+sudo make install
+```
 
-## Licence
-Ce dépôt contient des sources open source (GLPK) et des travaux académiques. Voir les fichiers COPYING/README pour plus de détails.
+For TP2 (KnapSack) and TP3 (SAT/PLNE), open the corresponding Jupyter notebooks in the renamed folders:
+
+- TP2: `TP2-TP3/KnapSack_Optimization/NotebookTP2.ipynb`
+- TP3: `TP2-TP3/SAT_Modeling_Advanced/TP3_skeleton.ipynb`
