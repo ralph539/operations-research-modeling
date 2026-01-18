@@ -1,80 +1,88 @@
 
 
-# 📐 Operations Research – Practical Assignments (N7, 2A, S1)
+# 📐 Polytope Studio: Optimization & Modeling
 
-This repository contains practical assignments for Operations Research, focusing on **linear programming**, **optimization modeling**, and the use of the **GLPK (GNU Linear Programming Kit)** solver.
+This repository serves as a comprehensive workbench for **Operations Research** and **Combinatorial Optimization**. It contains custom implementations of linear programming models, a manually compiled build of the **GLPK (GNU Linear Programming Kit)** solver, and algorithmic analyses of NP-hard problems (Knapsack, SAT).
 
-You will find models, data instances, Jupyter notebooks, and solver sources to experiment with and analyze various optimization problems.
+The project focuses on bridging the gap between theoretical mathematical formulation and practical solver performance.
 
----
+## 🧠 Core Competencies
 
-## 📁 Repository Structure
+* **Linear Programming (LP):** Modeling complex constraints for industrial problems (logistics, production planning).
+* **Integer Linear Programming (MILP):** Solving discrete combinatorial challenges.
+* **Solver Architecture:** Building and interfacing with industrial-grade solvers (GLPK).
+* **Complexity Analysis:** Benchmarking heuristics versus exact methods.
 
+## 📁 Project Architecture
+
+```text
+.
+├── glpk-core/               # GLPK 5.0 source code, build scripts, and local executables
+│   ├── sources/             # Raw C source code for the solver
+│   └── executables/         # Compiled binaries (glpsol)
+│
+├── linear-programming-models/ # AMPL/GMPL models for continuous optimization
+│   ├── e-commerce/          # Supply chain optimization models
+│   ├── production/          # Multi-constraint production planning
+│   └── reports/             # Technical analysis (LP_Solver_Report.pdf)
+│
+├── discrete-optimization/   # Jupyter Notebooks for combinatorial problems
+│   ├── knapsack/            # Knapsack Problem: Branch & Bound vs Heuristics
+│   │   ├── Knapsack_Analysis.ipynb
+│   │   └── instances/       # Benchmarking data (correlated/uncorrelated)
+│   │
+│   └── sat-logic/           # Boolean Satisfiability (SAT) & Logic constraints
+│       ├── SAT_Solver_Modeling.ipynb
+│       └── ...
+│
+└── README.md
 ```
-TP/
-├── TP1/
-│   └── solveurGLPK/
-│       └── sources/
-│           ├── glpk-5.0.tar.gz        # GLPK source archive
-│           └── glpk-5.0/              # Extracted GLPK source code
-│               ├── doc/               # GLPK documentation
-│               ├── examples/          # Example optimization problems
-│               ├── src/               # Solver source code
-│               └── ...
-├── TP2-TP3/
-│   ├── KnapSack_Optimization/         # TP2: Knapsack modeling & solving
-│   │   ├── NotebookTP2.ipynb          # Jupyter notebook for TP2
-│   │   └── InstancesKnapSack/         # Knapsack problem instances
-│   └── SAT_Modeling_Advanced/         # TP3: Advanced SAT/ILP modeling
-│       ├── TP3_skeleton.ipynb         # Jupyter notebook for TP3
-│       └── InstancesKnapSack/         # Instances for SAT/ILP
-└── TPRO/
-    └── ...                            # Other models and data
-```
 
 ---
 
-## 🎯 Project Objectives
+## 🚀 Getting Started
 
-- Understand the basics of **linear programming**
-- Learn to use and compile an industrial solver (**GLPK**)
-- Model and solve optimization problems (LP, ILP, SAT)
-- Experiment with real and synthetic instances (Knapsack, SAT, etc.)
-- Bridge theory (formulation) and practice (solving, analysis)
-
----
-
-## 🛠️ Requirements
-- Linux/Unix environment (recommended)
-- GCC / Make
-- GLPK dependencies (standard build tools)
-
----
-
-## 🚀 Build & Usage
-
-To build GLPK:
+### 1. Building the Environment (Linux/Unix)
+This project uses a local build of GLPK to ensure version consistency. To compile the solver core:
 
 ```bash
-cd TP/TP1/solveurGLPK/sources/glpk-5.0
+cd glpk-core/sources/glpk-5.0
 ./configure
 make
 sudo make install
 ```
 
-For the Jupyter notebooks:
-- TP2 (Knapsack): `TP2-TP3/KnapSack_Optimization/NotebookTP2.ipynb`
-- TP3 (SAT/ILP): `TP2-TP3/SAT_Modeling_Advanced/TP3_skeleton.ipynb`
+### 2. Running Optimization Models
+The linear programming models can be solved using the standalone glpsol utility:
 
-Open the notebooks in VS Code or JupyterLab to explore the models and analyses.
+```bash
+glpsol --math linear-programming-models/production/ModelCiment.mod
+```
+
+### 3. Interactive Analysis
+The discrete optimization algorithms are implemented in Python/Jupyter for easier visualization of convergence and performance.
+
+- Knapsack Analysis: Launch `discrete-optimization/knapsack/Knapsack_Analysis.ipynb`
+- SAT Logic: Launch `discrete-optimization/sat-logic/SAT_Solver_Modeling.ipynb`
 
 ---
 
-## 👥 Authors
-- Ralph Khairallah ([ralphkhairallah200@gmail.com](mailto:ralphkhairallah200@gmail.com))
-- Baptiste Rembert
+## 📊 Technical Highlights
+
+### Knapsack Problem
+Implemented multiple approaches to solve large-scale instances:
+
+- Greedy Heuristics: Fast approximations based on value/weight density.
+- Dynamic Programming: Exact solutions for bounded integer weights.
+- Branch and Bound: Tree search implementation for optimal solutions.
+
+### SAT & Logic
+- Modeled complex logic puzzles as Integer Linear Programs.
+- Transformed Boolean clauses into algebraic inequalities for solver processing.
 
 ---
 
-## 📄 License
-This repository contains open source (GLPK) and academic work. See COPYING/README files for details.
+## 👤 Author
+Ralph Khairallah
+
+Optimization Modeling & Software Engineering
